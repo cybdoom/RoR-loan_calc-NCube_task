@@ -1,0 +1,7 @@
+input {
+  display: block;
+}
+
+#one-time-comission, #year-rate, #month-rate, select {
+  display: inline-block;
+}

@@ -1,3 +1,43 @@
-<div>
-  123
-</div>
+<head>
+  <link href="<%= url 'stylesheets/lobby.css' %>" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <span>LOAN CALCULATOR</span>
+  </header>
+
+  <div class="inputs-area">
+    <label for="amount">Credit amount</label>
+    <input id="amount"></input>
+
+    <label for="period">Credit period</label>
+    <input id="period"></input>
+
+    <label for="one-time-comission">One-time comission</label>
+    <br>
+    <input id="one-time-comission"></input>
+    <select><%= OptionsHelper.amount_units_options %></select>
+    <br>
+
+    <label for="downpayment">Downpayment</label>
+    <input id="downpayment"></input>
+
+    <label for="year-rate">Per year rate</label>
+    <br>
+    <input id="year-rate"></input>
+    <select><%= OptionsHelper.amount_units_options %>
+    </select>
+    <br>
+
+    <label for="month-rate">Per month rate</label>
+    <br>
+    <input id="month-rate"></input>
+    <select><%= OptionsHelper.rate_units_options %></select>
+    <br>
+
+    <button>Calculate</button>
+  </div>
+
+  <footer>
+  </footer>
+</body>
