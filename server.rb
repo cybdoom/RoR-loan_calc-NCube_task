@@ -6,17 +6,20 @@ class Server
 
   def initialize
     load_models
-    load_helpers
+  end
+
+  def self.loan
+    @loan
+  end
+
+  def self.loan=value
+    @loan = value
   end
 
   private
 
   def load_models
     Dir[File.join ROOT, 'models', '**', '*'].each { |filename| require filename }
-  end
-
-  def load_helpers
-    Dir[File.join ROOT, 'helpers', '**', '*'].each { |filename| require filename }
   end
 end
 

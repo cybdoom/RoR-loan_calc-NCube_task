@@ -1,0 +1,34 @@
+<head>
+  <link href="<%= url 'stylesheets/result.css' %>" rel="stylesheet">
+  <script src="https://www.google.com/jsapi"></script>
+  <script>
+    <% result = Server.loan.result %>
+    google.load("visualization", "1", {packages:["table"]});
+    google.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Month #');
+      data.addColumn('number', 'Remaining loan');
+      data.addColumn('number', 'Part of loan\'s body to pay');
+      data.addColumn('number', 'Tax for loan usage');
+      data.addColumn('number', 'To pay');
+      data.addRows([
+        <% result[:payments_table].each_with_index do |row, i| %>
+          [<%= i + 1 %>, <%= row[:remaining_body].round 2 %>, <%= row[:body_month_part].round 2 %>, <%= row[:credit_tax].round 2 %>, <%= row[:to_pay].round 2 %>],
+        <% end %>
+      ]);
+
+      var table = new google.visualization.Table(document.getElementById('results'));
+
+      table.draw(data, {
+        showRowNumber: false,
+        sort: 'disable'
+      });
+    }
+  </script>
+</head>
+<body>
+  <div id="results"></div>
+  <div class="overpayment-label">Total overpayment: <%= result[:overpayment].round 2 %></div>
+</body>

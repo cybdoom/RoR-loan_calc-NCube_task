@@ -1,7 +1,26 @@
+body {
+  color: orange;
+  background: linear-gradient(#2F4F4F, #5F9EA0, #2F4F4F);
+}
+
 input {
   display: block;
 }
 
-#one-time-comission, #year-rate, #month-rate, select {
-  display: inline-block;
+header {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.inputs-area {
+  padding: 20px;
+  width: 175px;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid #6A5ACD;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
 }
